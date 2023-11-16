@@ -1,6 +1,6 @@
 # mesi_front
 nécessite:
-node:
+node:21.2.0
 Angular: 16.2.0
 
 install:
