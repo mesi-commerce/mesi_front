@@ -18,7 +18,7 @@ jobs:
           if [ "${{ github.event.pull_request.base.ref }}" == "prod" ]; then
             ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -s' < deploy_prod.sh
           elif [ "${{ github.event.pull_request.base.ref }}" == "dev" ]; then
-            ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -s' < deploy_dev.sh
+            ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -s' < deploy_pre.sh
           else
             echo "No deployment script specified for this branch."
           fi
