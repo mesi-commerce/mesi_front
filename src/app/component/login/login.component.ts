@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../../service/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AxiosService } from '../../service/axios.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  username = '';
-  password = '';
+export class LoginComponent implements OnInit{
+  data:string[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(private axiosService: AxiosService) {}
 
-  login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      (response) => {
-        console.log('Connecté avec succès');
-      },
-      (error) => {
-        console.error('Erreur de connexion', error);
-      }
-    );
+  ngOnInit(): void {
+    this.axiosService.request(
+      "GET",
+      "/messages",
+      {}
+    ).then((response) => this.data = response.data);
   }
+
 }
