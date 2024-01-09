@@ -1,9 +1,13 @@
-<div>
-    <label for="username">Nom d'utilisateur:</label>
-    <input type="text" id="username" [(ngModel)]="username" />
+<div class="row justify-content-md-center">
+  <div class="col-4">
+    <div class="card" style="width: '18rem'">
+      <div class="card-body">
+        <h5 class="card-title">Backend response</h5>
+        <p class="card-text">content:</p>
+        <ul>
+          <li *ngFor="let line of data">{{ line }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" [(ngModel)]="password" />
-  </div>
-  <button (click)="login()">Connexion</button>
+</div>
