@@ -10,9 +10,9 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
 import { WelcomeComponent } from './component/welcome/welcome.component';
-import { LoginFormComponent } from './component/login-form/login-form.component';
 import { ContentComponent } from './component/content/content.component';
 import { AuthContentComponent } from './component/auth-content/auth-content.component';
+import { ButtonsComponent } from './component/buttons/buttons.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +20,13 @@ import { AuthContentComponent } from './component/auth-content/auth-content.comp
     LoginComponent,
     HeaderComponent,
     WelcomeComponent,
-    LoginFormComponent,
     ContentComponent,
-    AuthContentComponent
+    AuthContentComponent,
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule
   ],
   providers: [],

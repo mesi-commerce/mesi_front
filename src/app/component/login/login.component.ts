@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AxiosService } from '../../service/axios.service';
 
 @Component({
@@ -6,17 +6,32 @@ import { AxiosService } from '../../service/axios.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
-  data:string[] = [];
+export class LoginComponent {
+  @Output() onSubmitLoginEvent = new EventEmitter();
+  @Output() onSubmitRegisterEvent = new EventEmitter();
 
-  constructor(private axiosService: AxiosService) {}
+  active: string = "login";
+  firstName: string = "";
+  lastName: string = "";
+  login: string = "";  
+  password: string = "";
 
-  ngOnInit(): void {
-    this.axiosService.request(
-      "GET",
-      "/messages",
-      {}
-    ).then((response) => this.data = response.data);
+  onLoginTab(): void {
+    this.active = "login";
   }
 
+  onRegisterTab(): void {
+    this.active = "register";
+  }
+  
+  onSubmitLogin(): void {
+    this.onSubmitLoginEvent.emit({"login": this.login, "password": this.password});
+  }
+
+  onSubmitRegister(): void {
+    this.onSubmitRegisterEvent.emit({
+      "firstName": this.firstName, "lastName": this.lastName,
+      "login": this.login, "password": this.password
+    });
+  }
 }
