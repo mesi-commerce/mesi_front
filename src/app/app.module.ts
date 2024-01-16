@@ -14,6 +14,7 @@ import { ContentComponent } from './component/content/content.component';
 import { AuthContentComponent } from './component/auth-content/auth-content.component';
 import { ButtonsComponent } from './component/buttons/buttons.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

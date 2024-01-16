@@ -8,5 +8,4 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() pageTitle!: string;
   @Input() logoSrc!: string;
-
 }
