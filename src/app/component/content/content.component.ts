@@ -4,7 +4,7 @@ import { AxiosService } from 'src/app/service/axios.service';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.scss']
 })
 export class ContentComponent {
   componentToShow:string = "welcome";
