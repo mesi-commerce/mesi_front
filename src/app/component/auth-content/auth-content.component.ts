@@ -4,7 +4,7 @@ import { AxiosService } from 'src/app/service/axios.service';
 @Component({
   selector: 'app-auth-content',
   templateUrl: './auth-content.component.html',
-  styleUrls: ['./auth-content.component.css']
+  styleUrls: ['./auth-content.component.scss']
 })
 export class AuthContentComponent implements OnInit{
   data:string[] = [];
