@@ -15,6 +15,11 @@ export class ContentComponent {
     this.componentToShow = componentToShow;
   }
 
+  onLogout() {
+    this.axiosService.removeAuthToken();
+    this.showComponent("welcome");
+  }
+
   onLogin(input:any): void {
     this.axiosService.request(
       "POST",
