@@ -23,6 +23,10 @@ export class AxiosService {
     }
   }
 
+  removeAuthToken() {
+    window.localStorage.clear();
+  }
+
   request(method: string, url: string, data:any): Promise<any> {
     let headers = {};
 
