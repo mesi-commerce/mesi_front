@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  protected isDiscountClosed:boolean;
+  constructor() {
+    this.isDiscountClosed = false;
+  }
 
+  public closeDiscount(){
+    this.isDiscountClosed=true
+  }
 }
