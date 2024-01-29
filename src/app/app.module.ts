@@ -10,6 +10,7 @@ import { ButtonsComponent } from './component/buttons/buttons.component';
 import { ContentComponent } from './component/content/content.component';
 import { WelcomeComponent } from './component/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     WelcomeComponent,
     ContentComponent,
     AuthContentComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
