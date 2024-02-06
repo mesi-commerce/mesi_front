@@ -1,6 +1,5 @@
 <div>
-    <app-buttons (loginEvent)="showComponent('login')"
-    (logoutEvent)="onLogout()"/>
+    <app-header (loginEvent)="showComponent('login')"/>
 
     <app-welcome *ngIf="componentToShow == 'welcome'"/>
     <app-login *ngIf="componentToShow == 'login'"
