@@ -38,7 +38,8 @@
     </form>
     <div class="d-flex flex-row justify-content-start gap-5">
       <a class="text-decoration-none text-dark" onclick=""><i class="bi bi-cart"></i></a>
-      <a class="text-decoration-none text-dark btn btn-outline-secondary" (click)="loginEvent.emit()"><i class="bi bi-person"></i></a>
+      <a class="text-decoration-none text-dark btn btn-outline-secondary" *ngIf="!axiosService.isTokenActive()" (click)="loginEvent.emit()"><i class="bi bi-person"></i></a>
+      <a class="text-decoration-none text-dark btn btn-outline-secondary" *ngIf="axiosService.isTokenActive()" (click)="logoutEvent.emit()"><i class="bi bi-person"></i></a>
     </div>
   </div>
 </header>

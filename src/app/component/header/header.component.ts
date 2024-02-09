@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { AxiosService } from 'src/app/service/axios.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +10,7 @@ export class HeaderComponent {
   @Output() logoutEvent = new EventEmitter();
   
   protected isDiscountClosed:boolean;
-  constructor() {
+  constructor(public axiosService:AxiosService) {
     this.isDiscountClosed = false;
   }
 

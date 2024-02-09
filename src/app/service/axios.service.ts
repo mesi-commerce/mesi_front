@@ -41,4 +41,15 @@ export class AxiosService {
       headers:headers
     });
   }
+
+  public isTokenActive():boolean {
+    switch (window.localStorage.getItem("auth_token")){
+      case null:
+        return false;
+        break;
+      default:
+        return true;
+        break; 
+    }
+  }
 }

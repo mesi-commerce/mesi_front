@@ -1,10 +1,10 @@
 <div>
-    <app-header (loginEvent)="showComponent('login')"/>
+    <app-header (loginEvent)="showComponent('login')"
+    (logoutEvent)="onLogout()"/>
 
-    <app-welcome *ngIf="componentToShow == 'welcome'"/>
-    <app-login *ngIf="componentToShow == 'login'"
+    <app-welcome *ngIf="axiosService.isTokenActive()"/>
+    <app-login *ngIf="!axiosService.isTokenActive()"
     (onSubmitLoginEvent)="onLogin($event)"
     (onSubmitRegisterEvent)="onRegister($event)"
     />
-    <app-auth-content *ngIf="componentToShow == 'messages'"/>
 </div>
