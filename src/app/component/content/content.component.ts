@@ -9,7 +9,7 @@ import { AxiosService } from 'src/app/service/axios.service';
 export class ContentComponent {
   componentToShow:string = "welcome";
 
-  constructor(private axiosService:AxiosService) { }
+  constructor(public axiosService:AxiosService) { }
 
   showComponent(componentToShow:string): void {
     this.componentToShow = componentToShow;
