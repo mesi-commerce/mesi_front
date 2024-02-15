@@ -7,7 +7,7 @@
   <div class="content" *ngIf="active === 'login'">
      <input [(ngModel)]="login" type="text" placeholder="Username" required>
      <input [(ngModel)]="password" type="password" placeholder="Password" required>
-     <button (click)="onSubmitLogin()">Login</button>
+     <button (click)="onLogin()">Login</button>
   </div>
  
   <div class="content" *ngIf="active === 'register'">
@@ -15,6 +15,6 @@
      <input [(ngModel)]="lastName" type="text" placeholder="Last Name" required>
      <input [(ngModel)]="login" type="text" placeholder="Username" required>
      <input [(ngModel)]="password" type="password" placeholder="Password" required>
-     <button (click)="onSubmitRegister()">Register</button>
+     <button (click)="onRegister()">Register</button>
   </div>
  </div>

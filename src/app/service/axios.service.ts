@@ -32,7 +32,10 @@ export class AxiosService {
     let headers = {};
 
     if (this.getAuthToken() !== null) {
-      headers = {"Authorization": "Bearer " + this.getAuthToken()}
+      headers = {
+        'Content-Type': 'application/json',
+        "Authorization": "Bearer " + this.getAuthToken()
+      }
     }
 
     return axios({

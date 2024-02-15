@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AxiosService } from 'src/app/service/axios.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class LoginComponent {
   @Output() onSubmitLoginEvent = new EventEmitter();
   @Output() onSubmitRegisterEvent = new EventEmitter();
+
+
+	constructor(
+    private axiosService: AxiosService,
+    private router: Router
+  ) { }
+
 
   active: string = "login";
   firstName: string = "";
@@ -19,18 +28,37 @@ export class LoginComponent {
     this.active = "login";
   }
 
+  onLogin(): void {
+    this.axiosService.request(
+      "POST",
+      "/login",
+      {
+        login: this.login,
+        password: this.password
+      }
+    ).then(response => {
+      this.axiosService.setAuthToken(response.data.token);
+      this.router.navigate(['']);
+    });
+  }
+
   onRegisterTab(): void {
     this.active = "register";
   }
-  
-  onSubmitLogin(): void {
-    this.onSubmitLoginEvent.emit({"login": this.login, "password": this.password});
-  }
 
-  onSubmitRegister(): void {
-    this.onSubmitRegisterEvent.emit({
-      "firstName": this.firstName, "lastName": this.lastName,
-      "login": this.login, "password": this.password
-    });
+  onRegister(): void {  
+    this.axiosService.request(
+      "POST",
+      "/register",
+      {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        login: this.login,
+        password: this.password
+      }
+    ).then(response => {
+      this.axiosService.setAuthToken(response.data.token);
+      this.router.navigate(['']);
+    }).catch(err => console.log(err));
   }
 }
