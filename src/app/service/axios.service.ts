@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 export class AxiosService {
 
   constructor() {
-    axios.defaults.baseURL = environment.apiURL
-    axios.defaults.headers.post["Content-Type"] = "application/json"
+    axios.defaults.baseURL = environment.apiURL;
+    axios.defaults.headers.post["Content-Type"] = "application/json";
   }
 
   getAuthToken(): string | null {

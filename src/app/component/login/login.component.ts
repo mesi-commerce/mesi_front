@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Credential } from 'src/app/model/Credential';
+import { SignUp } from 'src/app/model/SignUp';
 import { AxiosService } from 'src/app/service/axios.service';
 
 @Component({
@@ -17,12 +19,10 @@ export class LoginComponent {
     private router: Router
   ) { }
 
+  signUp: SignUp = new SignUp();
+  credential: Credential = new Credential();
 
   active: string = "login";
-  firstName: string = "";
-  lastName: string = "";
-  login: string = "";  
-  password: string = "";
 
   onLoginTab(): void {
     this.active = "login";
@@ -32,10 +32,7 @@ export class LoginComponent {
     this.axiosService.request(
       "POST",
       "/login",
-      {
-        login: this.login,
-        password: this.password
-      }
+      this.credential
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['']);
@@ -50,12 +47,7 @@ export class LoginComponent {
     this.axiosService.request(
       "POST",
       "/register",
-      {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        login: this.login,
-        password: this.password
-      }
+      this.signUp
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['']);
