@@ -1,0 +1,20 @@
+<div class="container">
+  <ul class="tab">
+     <li (click)="onLoginTab()" [class.active]="active === 'login'">Login</li>
+     <li (click)="onRegisterTab()" [class.active]="active === 'register'">Register</li>
+  </ul>
+ 
+  <div class="content" *ngIf="active === 'login'">
+     <input [(ngModel)]="credential.login" type="text" placeholder="Username" required>
+     <input [(ngModel)]="credential.password" type="password" placeholder="Password" required>
+     <button (click)="onLogin()">Login</button>
+  </div>
+ 
+  <div class="content" *ngIf="active === 'register'">
+     <input [(ngModel)]="signUp.firstName" type="text" placeholder="First Name" required>
+     <input [(ngModel)]="signUp.lastName" type="text" placeholder="Last Name" required>
+     <input [(ngModel)]="signUp.login" type="text" placeholder="Username" required>
+     <input [(ngModel)]="signUp.password" type="password" placeholder="Password" required>
+     <button (click)="onRegister()">Register</button>
+  </div>
+ </div>

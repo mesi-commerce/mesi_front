@@ -1,0 +1,45 @@
+<div class="alert-info" [hidden]="isDiscountClosed">
+  <div class="bg-dark d-flex justify-content-end align-items-center">
+    <p class="py-1 m-auto text-white">Sign up and get 20% off to your first orger
+      <a class="text-white" href="/subscribe">Sign Up Now</a>
+    </p>
+    <button class="text-white bg-transparent border-0 bi bi-x" (click)="closeDiscount()"></button>
+  </div>
+</div>
+
+<header class="border-bottom py-3">
+  <div class="d-flex flex-row align-items-center justify-content-center gap-5">
+    <a href="/" class="d-flex flex-row align-items-center text-dark text-decoration-none fs-4">
+      <img src="assets/logo.png" class="" height="75">
+      <span class="fs-4">NovelStyle</span>
+    </a>
+    <ul class="nav align-items-center gap-1">
+      <li class="dropdown">
+        <div class="dropdown">
+          <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shop
+          </span>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Categorie 1</a></li>
+            <li><a class="dropdown-item" href="#">Categorie 2</a></li>
+            <li><a class="dropdown-item" href="#">Categorie 3</a></li>
+          </ul>
+        </div>
+      <li><a href="#" class="nav-link px-2 link-dark">On sale</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">New arrivals</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Brands</a></li>
+    </ul>
+    <form class="w-50" role="search">
+      <div class="bg-light d-flex flex-row align-items-center border rounded-pill focus-ring py-2">
+        <i class="bi bi-search mx-4"></i>
+        <label for="searchInput" class="d-none">Search for a product</label>
+        <input type="search" id="searchInput" class="flex-grow-1 me-4 my-1 border-0 bg-transparent" placeholder="Search for a product" aria-label="Search" aria-describedby="searchButton">
+      </div>
+    </form>
+    <div class="d-flex flex-row justify-content-start gap-5">
+      <a class="text-decoration-none text-dark" onclick=""><i class="bi bi-cart"></i></a>
+      <a class="text-decoration-none text-dark btn btn-outline-secondary" *ngIf="!axiosService.isTokenActive()" (click)="loginEvent.emit()"><i class="bi bi-person"></i></a>
+      <a class="text-decoration-none text-dark btn btn-outline-secondary" *ngIf="axiosService.isTokenActive()" (click)="logoutEvent.emit()"><i class="bi bi-person"></i></a>
+    </div>
+  </div>
+</header>
