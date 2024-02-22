@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { ArticleComponent } from './component/article/article.component';
 import { ListComponent } from './component/article/list/list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ListComponent } from './component/article/list/list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
