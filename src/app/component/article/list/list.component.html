@@ -1,6 +1,28 @@
-<ul>
-    <li *ngFor="let article of articles">
-      {{ article.vendeur }} - {{ article.nom }}
-    </li>
-  </ul>
-  
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let article of articles">
+      <div class="card">
+        <!--à changer après la réflexion pour la gestion des images-->
+        <img src="../../../../assets/88167.png" class="mt-1 mx-auto d-block" width="100px" height="100px" alt="Image de {{article.nom}}">
+        
+        <div class="card-body">
+          <h5 class="card-title">{{article.nom}}</h5>
+          <p class="card-text"><strong>Vendeur:</strong> {{article.vendeur.login}}</p>
+          <p class="card-text"><strong>Note:</strong> {{article.note}}/5</p>
+          <p class="card-text"><strong>Stock:</strong> {{article.stock}}</p>
+          <p class="card-text"><strong>Description:</strong> {{article.description}}</p>
+          <p class="card-text"><strong>Prix:</strong> {{article.prix}}€</p>
+          <a href="#" class="btn btn-primary">Voir plus</a>
+        </div>
+      </div>
+    </div>
+    <mat-paginator #paginator 
+    [length]="allArticles.length" 
+    [pageSize]="pageSize" 
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageIndex]="pageIndex"
+    (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+
+</div>
