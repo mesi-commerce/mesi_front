@@ -19,3 +19,11 @@ export class User {
         this.token = token
     }
 }
+
+export const emptyUser: User = {
+    id:-1,
+    firstName:"",
+    lastName:"",
+    login:"",
+    token:""
+}

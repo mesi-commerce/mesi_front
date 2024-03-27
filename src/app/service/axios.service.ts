@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,17 @@ export class AxiosService {
     axios.defaults.headers.post["Content-Type"] = "application/json";
   }
 
+  setAuthData(data: User) {
+    this.setAuthToken(data.token);
+    this.setConnectedUser(data);
+  }
+
   getAuthToken(): string | null {
     return window.localStorage.getItem("auth_token");
+  }
+
+  getConnectedUser(): string | null {
+    return window.localStorage.getItem("connected_user");
   }
 
   setAuthToken(token: string | null) {
@@ -22,6 +32,10 @@ export class AxiosService {
     } else {
       window.localStorage.removeItem("auth_token");
     }
+  }
+
+  setConnectedUser(user:User) {
+    window.localStorage.setItem("connected_user", user.login);
   }
 
   removeAuthToken() {

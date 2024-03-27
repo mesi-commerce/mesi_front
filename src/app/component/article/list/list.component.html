@@ -1,21 +1,10 @@
-<div class="container mt-5">
-  <div class="row">
+<div class="container mt-5 page-size d-flex flex-column">
+  <div class="row flex-grow-1">
     <div class="col-sm-4 mb-4" *ngFor="let article of articles">
-      <div class="card">
-        <!--à changer après la réflexion pour la gestion des images-->
-        <img src="../../../../assets/88167.png" class="mt-1 mx-auto d-block" width="100px" height="100px" alt="Image de {{article.nom}}">
-        
-        <div class="card-body">
-          <h5 class="card-title">{{article.nom}}</h5>
-          <p class="card-text"><strong>Vendeur:</strong> {{article.vendeur.login}}</p>
-          <p class="card-text"><strong>Note:</strong> {{article.note}}/5</p>
-          <p class="card-text"><strong>Stock:</strong> {{article.stock}}</p>
-          <p class="card-text"><strong>Description:</strong> {{article.description}}</p>
-          <p class="card-text"><strong>Prix:</strong> {{article.prix}}€</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
+      <app-article-card [article]="article"></app-article-card>
+    </div>    
+  </div>
+  <div class="row">
     <mat-paginator #paginator 
     [length]="allArticles.length" 
     [pageSize]="pageSize" 
@@ -24,5 +13,9 @@
     (page)="changePage($event)">
     </mat-paginator>
   </div>
-
+  <div class="row mt-3">
+    <div class="col text-center">
+      <button (click)="navigateToAddArticle()" class="btn btn-primary">Ajouter un article</button>
+    </div>
+  </div>
 </div>

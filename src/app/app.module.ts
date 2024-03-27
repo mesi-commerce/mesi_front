@@ -12,6 +12,8 @@ import { ListComponent } from './component/article/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { AddArticleComponent } from './component/article/add-article/add-article.component';
+import { ArticleCardComponent } from './component/article/article-card/article-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
     HeaderComponent,
     FooterComponent,
     ArticleComponent,
-    ListComponent
+    ListComponent,
+    AddArticleComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

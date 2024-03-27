@@ -34,7 +34,7 @@ export class LoginComponent {
       "/login",
       this.credential
     ).then(response => {
-      this.axiosService.setAuthToken(response.data.token);
+      this.axiosService.setAuthData(response.data);
       this.router.navigate(['']);
     });
   }
@@ -49,7 +49,7 @@ export class LoginComponent {
       "/register",
       this.signUp
     ).then(response => {
-      this.axiosService.setAuthToken(response.data.token);
+      this.axiosService.setAuthData(response.data);
       this.router.navigate(['']);
     }).catch(err => console.log(err));
   }

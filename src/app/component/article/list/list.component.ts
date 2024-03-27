@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { merge, startWith, switchMap, of } from 'rxjs';
+import { Router } from '@angular/router';
 import { Article } from 'src/app/model/Article';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -19,8 +19,10 @@ export class ListComponent implements OnInit {
   pageSize = 10;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   
-  constructor(private articleService:ArticleService) {
-  }
+  constructor(
+    private articleService:ArticleService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loadArticles();
@@ -45,5 +47,9 @@ export class ListComponent implements OnInit {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.articles = this.allArticles.slice(startIndex, endIndex);
+  }
+
+  navigateToAddArticle() {
+    this.router.navigate(['/add-article']);
   }
 }

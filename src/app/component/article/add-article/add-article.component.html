@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h2>Ajouter un nouvel article</h2>
+    <form (ngSubmit)="onSubmit()" #articleForm="ngForm">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom de l'article</label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="article.nom" name="nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="note" class="form-label">Note</label>
+        <input type="number" class="form-control" id="note" [(ngModel)]="article.note" name="note" required min="0" max="5">
+      </div>
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stock</label>
+        <input type="number" class="form-control" id="stock" [(ngModel)]="article.stock" name="stock" required min="0">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" [(ngModel)]="article.description" name="description" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="prix" class="form-label">Prix</label>
+        <input type="number" class="form-control" id="prix" [(ngModel)]="article.prix" name="prix" required min="0">
+      </div>
+      <button type="submit" class="btn btn-primary">Soumettre</button>
+    </form>
+  </div>
+  

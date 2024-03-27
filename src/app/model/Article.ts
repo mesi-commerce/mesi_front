@@ -1,8 +1,6 @@
-import { User } from "./User";
-
 export class Article {
     id: number;
-    vendeur: User;
+    vendeur: string;
     nom: string;
     note: number;
     stock: number;
@@ -11,7 +9,7 @@ export class Article {
 
     constructor(
         id: number,
-        vendeur: User,
+        vendeur: string,
         nom: string,
         note: number,
         stock: number,
@@ -27,3 +25,12 @@ export class Article {
         this.prix = prix
     }
 }
+export const emptyArticle: Article = {
+    id: -1,
+    vendeur: "",
+    nom: "",
+    note: -1,
+    stock: -1,
+    description: "",
+    prix: -1
+} 

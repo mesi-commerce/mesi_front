@@ -1,0 +1,13 @@
+<div class="card">
+    <img src="../../../../assets/88167.png" class="mt-1 mx-auto d-block" width="100px" height="100px" alt="Image de {{article.nom}}">
+    <div class="card-body">
+      <h5 class="card-title">{{article.nom}}</h5>
+      <p class="card-text" *ngIf="article.vendeur"><strong>Vendeur:</strong> {{article.vendeur}}</p>
+      <p class="card-text"><strong>Note:</strong> {{article.note}}/5</p>
+      <p class="card-text"><strong>Stock:</strong> {{article.stock}}</p>
+      <p class="card-text"><strong>Description:</strong> {{article.description}}</p>
+      <p class="card-text"><strong>Prix:</strong> {{article.prix}}€</p>
+      <a href="#" class="btn btn-primary">Voir plus</a>
+    </div>
+  </div>
+  
